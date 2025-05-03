@@ -29,6 +29,8 @@ https://templatemo.com/tm-543-breezed
 
     <link rel="stylesheet" href="../assets/css/lightbox.css">
 
+    <link rel="icon" href="/assets/images/alto-logo.png" type="image/png">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     </head>
@@ -53,8 +55,8 @@ https://templatemo.com/tm-543-breezed
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo" id="special-logo">
-                            ALTO
+                        <a href="index.html" class="logo">
+                            <img alt="" src="/assets/images/alto-logo.png" /> 
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -107,7 +109,6 @@ https://templatemo.com/tm-543-breezed
                                     <li><a href="/learn-more/podcast.html">Our Podcast</a></li>
                                     <li><a href="/learn-more/arizona-law.html">Arizona Law</a></li>
                                     <li><a href="/learn-more/forced-child-labor.html">Forced Child Labor</a></li>
-                                    <li><a href="/learn-more/labor-trafficking-indicators.html">Labor Trafficking Indicators</a></li>
                                     <li><a href="/learn-more/highest-risk.html">Who's at Risk?</a></li>
                                     <li><a href="/learn-more/who-are-traffickers.html">The Traffickers</a></li>
                                     <li><a href="/learn-more/educational-material.html">Other Educational Materials</a></li>
@@ -345,6 +346,48 @@ https://templatemo.com/tm-543-breezed
         });
 
     </script>
+
+    <script>
+        $(document).ready(function () {
+            // Only bind submenu click behavior if screen is 1610px or less
+            if ($(window).width() <= 1610) {
+                $('.submenu > a').click(function (e) {
+                    e.preventDefault();
+
+                    const submenu = $(this).next('ul');
+
+                    // Slide toggle submenu
+                    submenu.slideToggle(200);
+
+                    // Toggle 'active' class
+                    submenu.toggleClass('active');
+
+                    // Optional: close other submenus
+                    $('.submenu ul').not(submenu).slideUp().removeClass('active');
+                    $('.submenu > a').not(this).removeClass('open');
+
+                    // Toggle open class for the clicked <a>
+                    $(this).toggleClass('open');
+                });
+            }
+        });
+    </script>
+
+<script>
+    document.getElementById("quick-exit-dark").addEventListener("click", function () {
+    // Open Google in a new tab
+    const newTab = window.open("https://www.google.com", "_blank");
+
+    // Try to close the current tab (works only if opened by JS or allowed by browser)
+    window.open('', '_self');
+    window.close();
+
+    // As fallback, replace current tab (no back button history)
+    setTimeout(() => {
+        window.location.replace("https://www.google.com");
+    }, 100);
+    });
+</script>
 
   </body>
 </html>
